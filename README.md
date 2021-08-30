@@ -18,7 +18,8 @@ provides support for:
 To install rliable as a package, run:
 
 ```python
-pip install git+https://github.com/google-research/rliable.git
+git clone https://github.com/google-research/rliable
+pip3 install -e rliable
 ```
 
 To import `rliable`, we suggest:
