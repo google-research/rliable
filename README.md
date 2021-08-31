@@ -51,13 +51,13 @@ algorithms = ['DQN (Nature)', 'DQN (Adam)', 'C51', 'REM', 'Rainbow',
 # score matrices, each of which is of size `(num_runs x num_games)`.
 atari_200m_normalized_score_dict = ...
 aggregate_func = lambda x: np.array([
-  metrics.aggregate_median(x),
+  metrics.median(x),
   metrics.aggregate_iqm(x),
   metrics.aggregate_mean(x),
   metrics.aggregate_optimality_gap(x)])
 aggregate_scores, aggregate_score_cis = rly.get_interval_estimates(
   atari_200m_normalized_score_dict, aggregate_func, reps=50000)
-fig, axes = plot_utils.plot_interval_estimates(
+fig, axes = plot_utils.plot_aggregate_metrics(
   aggregate_scores, aggregate_score_cis,
   metric_names=['Median', 'IQM', 'Mean', 'Optimality Gap'],
   algorithms=algorithms, xlabel='Human Normalized Score')
@@ -147,12 +147,12 @@ Citing
 ------
 If you find this open source release useful, please reference in your paper:
 
-    @article{agarwal2021deep,
+    @inproceedings{agarwal2021precipice,
       title={Deep Reinforcement Learning at the Edge of the Statistical Precipice},
-      author={Agarwal, Rishabh and Schwarzer, Max and Castro, Pablo Samuel
-              and Courville, Aaron and Bellemare, Marc G},
+      author={Agarwal, Rishabh and Schwarzer, Max and Castro, Pablo Samuel and
+              Courville, Aaron and Bellemare, Marc G.},
       journal={arXiv preprint arXiv:2108.13264},
-      year={2021}
+      year={2021},
     }
 
 Disclaimer: This is not an official Google product.
