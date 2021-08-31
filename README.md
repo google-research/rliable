@@ -14,6 +14,16 @@ provides support for:
 
 ![Aggregate Metrics](images/aggregate_metric.png)
 
+### Paper
+For more details, refer to the accompanying paper:
+[Deep Reinforcement Learning at the Edge of the Statistical Precipice](https://arxiv.org/pdf/2108.13264.pdf).
+
+### Interactive colab
+We also provide a colab at [bit.ly/statistical_precipice_colab](https://colab.sandbox.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing),
+which shows how to use the library with examples of published algorithms on
+widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
+
+### Installation
 
 To install rliable as a package, run:
 
@@ -112,6 +122,7 @@ plot_utils.plot_performance_profiles(
 ![Score Distributions](images/ale_score_distributions.png)
 
 The above profile can also be plotted with non-linear scaling as follows:
+
 ```python
 plot_utils.plot_performance_profiles(
   perf_prof_atari_200m, atari_200m_tau,
@@ -127,10 +138,10 @@ plot_utils.plot_performance_profiles(
 ### Dependencies
 The code was tested under `Python>=3.7` and uses these packages:
 
-- arch
-- scipy
-- numpy
-- absl-py
+- arch >= 4.19
+- scipy >= 1.7.0
+- numpy >= 0.9.0
+- absl-py >= 1.16.4
 
 Citing
 ------
@@ -140,6 +151,7 @@ If you find this open source release useful, please reference in your paper:
       title={Deep Reinforcement Learning at the Edge of the Statistical Precipice},
       author={Agarwal, Rishabh and Schwarzer, Max and Castro, Pablo Samuel and
               Courville, Aaron and Bellemare, Marc G.},
+      journal={arXiv preprint arXiv:2108.13264},
       year={2021},
     }
 
