@@ -147,12 +147,12 @@ Citing
 ------
 If you find this open source release useful, please reference in your paper:
 
-    @inproceedings{agarwal2021precipice,
+    @article{agarwal2021deep,
       title={Deep Reinforcement Learning at the Edge of the Statistical Precipice},
-      author={Agarwal, Rishabh and Schwarzer, Max and Castro, Pablo Samuel and
-              Courville, Aaron and Bellemare, Marc G.},
+      author={Agarwal, Rishabh and Schwarzer, Max and Castro, Pablo Samuel
+              and Courville, Aaron and Bellemare, Marc G},
       journal={arXiv preprint arXiv:2108.13264},
-      year={2021},
+      year={2021}
     }
 
 Disclaimer: This is not an official Google product.
