@@ -13,7 +13,7 @@ provides support for:
    * Probability of Improvement
 
 <div align="left">
-  <img src="https://github.com/google-research/rliable/blob/master/images/aggregate_metric.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/aggregate_metric.png">
 </div>
 
 ### Paper
@@ -71,7 +71,7 @@ fig, axes = plot_utils.plot_interval_estimates(
 ```
 
 <div align="left">
-  <img src="https://github.com/google-research/rliable/blob/master/images/ale_interval_estimates.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/ale_interval_estimates.png">
 </div>
 
 ##### Probability of Improvement
@@ -84,7 +84,7 @@ average_probabilities, average_prob_cis = rly.get_interval_estimates(
 plot_probability_of_improvement(average_probabilities, average_prob_cis)
 ```
 <div align="center">
-  <img src="https://github.com/google-research/rliable/blob/master/images/procgen_probability_of_improvement.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/procgen_probability_of_improvement.png">
 </div>
 
 #### Sample Efficiency Curve
@@ -108,8 +108,8 @@ plot_utils.plot_sample_efficiency_curve(
     ylabel='IQM Human Normalized Score')
 ```
 <div align="center">
-  <img src="https://github.com/google-research/rliable/blob/master/images/ale_legend.png">
-  <img src="https://github.com/google-research/rliable/blob/master/images/atari_sample_efficiency_iqm.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/ale_legend.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/atari_sample_efficiency_iqm.png">
 </div>
 
 ### Performance Profiles
@@ -132,8 +132,8 @@ plot_utils.plot_performance_profiles(
   ax=ax)
 ```
 <div align="center">
-  <img src="https://github.com/google-research/rliable/blob/master/images/ale_legend.png">
-  <img src="https://github.com/google-research/rliable/blob/master/images/ale_score_distributions.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/ale_legend.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/ale_score_distributions.png">
 </div>
 
 The above profile can also be plotted with non-linear scaling as follows:
