@@ -12,7 +12,9 @@ provides support for:
    * Optimality Gap
    * Probability of Improvement
 
-![Aggregate Metrics](images/aggregate_metric.png)
+<div align="left">
+  <img src="https://github.com/google-research/rliable/blob/master/images/aggregate_metric.png">
+</div>
 
 ### Paper
 For more details, refer to the accompanying paper:
@@ -25,7 +27,12 @@ widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
 
 ### Installation
 
-To install rliable as a package, run:
+To install `rliable`, run:
+```python
+pip install -U rliable
+```
+
+To install latest version of `rliable` as a package, run:
 
 ```python
 git clone https://github.com/google-research/rliable
@@ -62,7 +69,10 @@ fig, axes = plot_utils.plot_interval_estimates(
   metric_names=['Median', 'IQM', 'Mean', 'Optimality Gap'],
   algorithms=algorithms, xlabel='Human Normalized Score')
 ```
-![Interval Esimtates](images/ale_interval_estimates.png)
+
+<div align="left">
+  <img src="https://github.com/google-research/rliable/blob/master/images/ale_interval_estimates.png">
+</div>
 
 ##### Probability of Improvement
 ```python
@@ -73,8 +83,9 @@ average_probabilities, average_prob_cis = rly.get_interval_estimates(
   procgen_algorithm_pairs, metrics.probability_of_improvement, reps=50000)
 plot_probability_of_improvement(average_probabilities, average_prob_cis)
 ```
-![Probability of improvement](images/procgen_probability_of_improvement.png)
-
+<div align="center">
+  <img src="https://github.com/google-research/rliable/blob/master/images/procgen_probability_of_improvement.png">
+</div>
 
 #### Sample Efficiency Curve
 ```python
@@ -96,8 +107,10 @@ plot_utils.plot_sample_efficiency_curve(
     xlabel=r'Number of Frames (in millions)',
     ylabel='IQM Human Normalized Score')
 ```
-![ALE_legend](images/ale_legend.png)
-![Sample Efficiency](images/atari_sample_efficiency_iqm.png)
+<div align="center">
+  <img src="https://github.com/google-research/rliable/blob/master/images/ale_legend.png">
+  <img src="https://github.com/google-research/rliable/blob/master/images/atari_sample_efficiency_iqm.png">
+</div>
 
 ### Performance Profiles
 
@@ -118,8 +131,10 @@ plot_utils.plot_performance_profiles(
   xlabel=r'Human Normalized Score $(\tau)$',
   ax=ax)
 ```
-![ALE_legend](images/ale_legend.png)
-![Score Distributions](images/ale_score_distributions.png)
+<div align="center">
+  <img src="https://github.com/google-research/rliable/blob/master/images/ale_legend.png">
+  <img src="https://github.com/google-research/rliable/blob/master/images/ale_score_distributions.png">
+</div>
 
 The above profile can also be plotted with non-linear scaling as follows:
 
