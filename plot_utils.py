@@ -319,3 +319,143 @@ def plot_sample_efficiency_curve(frames,
       labelsize=labelsize,
       ticklabelsize=ticklabelsize,
       **kwargs)
+
+
+def plot_probability_of_improvement(
+    probability_estimates,
+    probability_interval_estimates,
+    pair_separator=',',
+    ax=None,
+    figsize=(4, 3),
+    colors=None,
+    color_palette='colorblind',
+    alpha=0.75,
+    xticks=None,
+    xlabel='P(X > Y)',
+    left_ylabel='Algorithm X',
+    right_ylabel='Algorithm Y',
+    **kwargs):
+  """Plots probability of improvement with confidence intervals.
+
+  Args:
+    probability_estimates: Dictionary mapping algorithm pairs (X, Y) to a
+      list or array containing probability of improvement of X over Y.
+    probability_interval_estimates: Dictionary mapping algorithm pairs (X, Y)
+      to interval estimates corresponding to the `probability_estimates`.
+      Typically, consists of stratified independent bootstrap CIs.
+    pair_separator: Each algorithm pair name in dictionaries above is joined by
+      a string separator. For example, if the pairs are specified as 'X;Y', then
+      the separator corresponds to ';'. Defaults to ','.
+    ax: `matplotlib.axes` object.
+    figsize: Size of the figure passed to `matplotlib.subplots`. Only used when
+      `ax` is None.
+    colors: Maps each algopair name to a color. If None, then this mapping is
+      created based on `color_palette`.
+    color_palette: `seaborn.color_palette` object. Used when `colors` is None.
+    alpha: Changes the transparency of the shaded regions corresponding to the
+      confidence intervals.
+    xticks: The list of x-axis tick locations. Passing an empty list removes all
+      xticks.
+    xlabel: Label for the x-axis. Defaults to 'P(X > Y)'.
+    left_ylabel: Label for the left y-axis. Defaults to 'Algorithm X'.
+    right_ylabel: Label for the left y-axis. Defaults to 'Algorithm Y'.
+    **kwargs: Arbitrary keyword arguments for annotating and decorating the
+      figure. For valid arguments, refer to `_annotate_and_decorate_axis`.
+
+  Returns:
+    `axes.Axes` which contains the plot for probability of improvement.
+  """
+
+  if ax is None:
+    _, ax = plt.subplots(figsize=figsize)
+  if not colors:
+    colors = sns.color_palette(color_palette)
+  h = kwargs.pop('interval_height', 0.6)
+  wrect = kwargs.pop('wrect', 5)
+  ticklabelsize = kwargs.pop('ticklabelsize', 'x-large')
+  labelsize = kwargs.pop('labelsize', 'x-large')
+  # x-position of the y-label
+  ylabel_x_coordinate = kwargs.pop('ylabel_x_coordinate', 0.2)
+  # x-position of the y-label
+
+  twin_ax = ax.twinx()
+  all_algorithm_x, all_algorithm_y = [], []
+
+  # Main plotting code
+  for idx, (algorithm_pair, prob) in enumerate(probability_estimates.items()):
+    lower, upper = probability_interval_estimates[algorithm_pair]
+    algorithm_x, algorithm_y = algorithm_pair.split(pair_separator)
+    all_algorithm_x.append(algorithm_x)
+    all_algorithm_y.append(algorithm_y)
+
+    ax.barh(
+        y=idx,
+        width=upper - lower,
+        height=h,
+        left=lower,
+        color=colors[idx],
+        alpha=alpha,
+        label=algorithm_x)
+    twin_ax.barh(
+        y=idx,
+        width=upper - lower,
+        height=h,
+        left=lower,
+        color=colors[idx],
+        alpha=0.0,
+        label=algorithm_y)
+    ax.vlines(
+        x=prob,
+        ymin=idx - 7.5 * h / 16,
+        ymax=idx + (6 * h / 16),
+        color='k',
+        alpha=min(alpha + 0.1, 1.0))
+
+  # Beautify plots
+  yticks = range(len(probability_estimates))
+  ax = _annotate_and_decorate_axis(
+      ax,
+      xticks=xticks,
+      yticks=yticks,
+      xticklabels=xticks,
+      xlabel=xlabel,
+      ylabel=left_ylabel,
+      wrect=wrect,
+      ticklabelsize=ticklabelsize,
+      labelsize=labelsize,
+      **kwargs)
+  twin_ax = _annotate_and_decorate_axis(
+      twin_ax,
+      xticks=xticks,
+      yticks=yticks,
+      xticklabels=xticks,
+      xlabel=xlabel,
+      ylabel=right_ylabel,
+      wrect=wrect,
+      labelsize=labelsize,
+      ticklabelsize=ticklabelsize,
+      grid_alpha=0.0,
+      **kwargs)
+  twin_ax.set_yticklabels(all_algorithm_y, fontsize='large')
+  ax.set_yticklabels(all_algorithm_x, fontsize='large')
+  twin_ax.set_ylabel(
+      right_ylabel,
+      fontweight='bold',
+      rotation='horizontal',
+      fontsize=labelsize)
+  ax.set_ylabel(
+      left_ylabel,
+      fontweight='bold',
+      rotation='horizontal',
+      fontsize=labelsize)
+  twin_ax.set_yticklabels(all_algorithm_y, fontsize=ticklabelsize)
+  ax.set_yticklabels(all_algorithm_x, fontsize=ticklabelsize)
+  ax.tick_params(axis='both', which='major')
+  twin_ax.tick_params(axis='both', which='major')
+  ax.spines['left'].set_visible(False)
+  twin_ax.spines['left'].set_visible(False)
+  ax.yaxis.set_label_coords(-ylabel_x_coordinate, 1.0)
+  twin_ax.yaxis.set_label_coords(1 + 0.7 * ylabel_x_coordinate,
+                                 1 + 0.6 * ylabel_x_coordinate)
+
+  return ax
