@@ -39,7 +39,7 @@ rliable_description = (
 
 setup(
     name='rliable',
-    version='1.0.3',
+    version='1.0.4',
     description=rliable_description,
     long_description=long_description,
     long_description_content_type='text/markdown',
