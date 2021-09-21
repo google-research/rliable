@@ -35,8 +35,7 @@ pip install -U rliable
 To install latest version of `rliable` as a package, run:
 
 ```python
-git clone https://github.com/google-research/rliable
-pip3 install -e rliable
+pip3 install git+https://github.com/google-research/rliable
 ```
 
 To import `rliable`, we suggest:
