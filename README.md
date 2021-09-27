@@ -2,8 +2,15 @@
 ## `rliable`
 
 `rliable` is an open-source Python library for reliable evaluation, even with a *handful
-of runs*, on reinforcement learning and machine learnings benchmarks. `rliable`
-provides support for:
+of runs*, on reinforcement learning and machine learnings benchmarks. 
+
+| **Desideratum** | **Current evaluation approach** |  **Our Recommendation**    |
+| --------------------------------- | ----------- | --------- |
+| Uncertainty in aggregate performance | **Point estimates**: <ul> <li> Ignore statistical uncertainty </li> <li> Hinder *results reproducibility* </li></ul> | Interval estimates using **stratified bootstrap confidence intervals** (CIs) |
+|Performance variability across tasks and runs| **Tables with task mean scores**: <ul><li> Overwhelming beyond a few tasks </li> <li> Standard deviations frequently omitted </li> <li> Incomplete picture for multimodal and heavy-tailed distributions </li> </ul> | **Score distributions** (*performance profiles*): <ul> <li> Show tail distribution of scores on combined runs across tasks </li> <li> Allow qualitative comparisons </li> <li> Easily read any score percentile </li> </ul>|
+|Aggregate metrics for summarizing benchmark performance | **Mean**:  <ul><li> Often dominated by performance on outlier tasks </li></ul> &nbsp; **Median**: <ul> <li> Statistically inefficient (requires a large number of runs to claim improvements) </li>  <li> Poor indicator of overall performance: 0 scores on nearly half the tasks doesn't change it </li> </ul>| **Interquartile Mean (IQM)** across all runs: <ul> <li> Performance on middle 50% of combined runs </li> <li> Robust to outlier scores but more statistically efficient than median </li> </ul> To show other aspects of performance gains, report *Probability of improvement* and *Optimality gap* |
+
+`rliable` provides support for:
 
  * Stratified Bootstrap Confidence Intervals (CIs)
  * Performance Profiles (with plotting functions)
@@ -16,14 +23,15 @@ provides support for:
   <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/aggregate_metric.png">
 </div>
 
+## Interactive colab
+We provide a colab at [bit.ly/statistical_precipice_colab](https://colab.sandbox.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing),
+which shows how to use the library with examples of published algorithms on
+widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
+
 ### Paper
 For more details, refer to the accompanying paper:
 [Deep Reinforcement Learning at the Edge of the Statistical Precipice](https://arxiv.org/pdf/2108.13264.pdf).
 
-### Interactive colab
-We also provide a colab at [bit.ly/statistical_precipice_colab](https://colab.sandbox.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing),
-which shows how to use the library with examples of published algorithms on
-widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
 
 ### Installation
 
@@ -35,7 +43,7 @@ pip install -U rliable
 To install latest version of `rliable` as a package, run:
 
 ```python
-pip3 install git+https://github.com/google-research/rliable
+pip install git+https://github.com/google-research/rliable
 ```
 
 To import `rliable`, we suggest:
