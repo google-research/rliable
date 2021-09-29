@@ -29,7 +29,7 @@ which shows how to use the library with examples of published algorithms on
 widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
 
 ### Paper
-For more details, refer to the accompanying paper:
+For more details, refer to the accompanying **NeurIPS 2021** paper (Oral):
 [Deep Reinforcement Learning at the Edge of the Statistical Precipice](https://arxiv.org/pdf/2108.13264.pdf).
 
 
@@ -173,7 +173,7 @@ If you find this open source release useful, please reference in your paper:
       title={Deep Reinforcement Learning at the Edge of the Statistical Precipice},
       author={Agarwal, Rishabh and Schwarzer, Max and Castro, Pablo Samuel
               and Courville, Aaron and Bellemare, Marc G},
-      journal={arXiv preprint arXiv:2108.13264},
+      journal={Advances in Neural Information Processing Systems},
       year={2021}
     }
 
