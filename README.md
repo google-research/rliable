@@ -132,8 +132,8 @@ score_distributions, score_distributions_cis = rly.create_performance_profile(
 # Plot score distributions
 fig, ax = plt.subplots(ncols=1, figsize=(7, 5))
 plot_utils.plot_performance_profiles(
-  perf_prof_atari_200m, atari_200m_tau,
-  performance_profile_cis=perf_prof_atari_200m_cis,
+  score_distributions, atari_200m_thresholds,
+  performance_profile_cis=score_distributions_cis,
   colors=dict(zip(algorithms, sns.color_palette('colorblind'))),
   xlabel=r'Human Normalized Score $(\tau)$',
   ax=ax)
