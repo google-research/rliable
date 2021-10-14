@@ -140,7 +140,7 @@ plot_utils.plot_performance_profiles(
 ```
 <div align="center">
   <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/ale_legend.png">
-  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/ale_score_distributions.png">
+  <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/ale_score_distributions_new.png">
 </div>
 
 The above profile can also be plotted with non-linear scaling as follows:
