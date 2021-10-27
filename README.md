@@ -1,9 +1,10 @@
 
 ## `rliable`
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing)
+
 `rliable` is an open-source Python library for reliable evaluation, even with a *handful
 of runs*, on reinforcement learning and machine learnings benchmarks. 
-
 | **Desideratum** | **Current evaluation approach** |  **Our Recommendation**    |
 | --------------------------------- | ----------- | --------- |
 | Uncertainty in aggregate performance | **Point estimates**: <ul> <li> Ignore statistical uncertainty </li> <li> Hinder *results reproducibility* </li></ul> | Interval estimates using **stratified bootstrap confidence intervals** (CIs) |
@@ -24,9 +25,10 @@ of runs*, on reinforcement learning and machine learnings benchmarks.
 </div>
 
 ## Interactive colab
-We provide a colab at [bit.ly/statistical_precipice_colab](https://colab.sandbox.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing),
+We provide a colab at [bit.ly/statistical_precipice_colab](https://colab.research.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing),
 which shows how to use the library with examples of published algorithms on
 widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
+
 
 ### Paper
 For more details, refer to the accompanying **NeurIPS 2021** paper (Oral):
