@@ -1,6 +1,5 @@
 
-# [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing) [![Website](https://img.shields.io/badge/www-Website-green)](https://agarwl.github.io/rliable) [![Blog](https://img.shields.io/badge/b-Blog-blue)](https://ai.googleblog.com/2021/11/rliable-towards-reliable-evaluation.html) 
-
+# [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing) [![Website](https://img.shields.io/badge/www-Website-green)](https://agarwl.github.io/rliable) [![Blog](https://img.shields.io/badge/b-Blog-blue)](https://ai.googleblog.com/2021/11/rliable-towards-reliable-evaluation.html)
 
 `rliable` is an open-source Python library for reliable evaluation, even with a *handful
 of runs*, on reinforcement learning and machine learnings benchmarks. 
@@ -30,7 +29,7 @@ widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
 
 
 ### Paper
-For more details, refer to the accompanying **NeurIPS 2021 (Outstanding Paper Award)**:
+For more details, refer to the accompanying **NeurIPS 2021** paper (Oral):
 [Deep Reinforcement Learning at the Edge of the Statistical Precipice](https://arxiv.org/pdf/2108.13264.pdf).
 
 
@@ -88,8 +87,8 @@ fig, axes = plot_utils.plot_interval_estimates(
 # matrices for pairs of algorithms we want to compare
 procgen_algorithm_pairs = {.. , 'x,y': (score_x, score_y), ..}
 average_probabilities, average_prob_cis = rly.get_interval_estimates(
-  procgen_algorithm_pairs, metrics.probability_of_improvement, reps=2000)
-plot_utils.plot_probability_of_improvement(average_probabilities, average_prob_cis)
+  procgen_algorithm_pairs, metrics.probability_of_improvement, reps=50000)
+plot_probability_of_improvement(average_probabilities, average_prob_cis)
 ```
 <div align="center">
   <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/procgen_probability_of_improvement.png">
