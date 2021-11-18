@@ -1,5 +1,6 @@
 
-## `rliable` [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing) 
+# [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1a0pSD-1tWhMmeJeeoyZM1A-HCW3yf1xR?usp=sharing) [![Website](https://img.shields.io/badge/www-Website-green)](https://agarwl.github.io/rliable) [![Blog](https://img.shields.io/badge/b-Blog-blue)](https://ai.googleblog.com/2021/11/rliable-towards-reliable-evaluation.html) 
+
 
 `rliable` is an open-source Python library for reliable evaluation, even with a *handful
 of runs*, on reinforcement learning and machine learnings benchmarks. 
