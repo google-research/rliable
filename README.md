@@ -30,7 +30,7 @@ widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
 
 
 ### Paper
-For more details, refer to the accompanying **NeurIPS 2021** paper (Oral):
+For more details, refer to the accompanying **NeurIPS 2021 (Outstanding Paper Award)**:
 [Deep Reinforcement Learning at the Edge of the Statistical Precipice](https://arxiv.org/pdf/2108.13264.pdf).
 
 
@@ -88,7 +88,7 @@ fig, axes = plot_utils.plot_interval_estimates(
 # matrices for pairs of algorithms we want to compare
 procgen_algorithm_pairs = {.. , 'x,y': (score_x, score_y), ..}
 average_probabilities, average_prob_cis = rly.get_interval_estimates(
-  procgen_algorithm_pairs, metrics.probability_of_improvement, reps=50000)
+  procgen_algorithm_pairs, metrics.probability_of_improvement, reps=2000)
 plot_probability_of_improvement(average_probabilities, average_prob_cis)
 ```
 <div align="center">
