@@ -89,7 +89,7 @@ fig, axes = plot_utils.plot_interval_estimates(
 procgen_algorithm_pairs = {.. , 'x,y': (score_x, score_y), ..}
 average_probabilities, average_prob_cis = rly.get_interval_estimates(
   procgen_algorithm_pairs, metrics.probability_of_improvement, reps=2000)
-plot_probability_of_improvement(average_probabilities, average_prob_cis)
+plot_utils.plot_probability_of_improvement(average_probabilities, average_prob_cis)
 ```
 <div align="center">
   <img src="https://raw.githubusercontent.com/google-research/rliable/master/images/procgen_probability_of_improvement.png">
