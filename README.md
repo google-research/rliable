@@ -87,7 +87,7 @@ fig, axes = plot_utils.plot_interval_estimates(
 # matrices for pairs of algorithms we want to compare
 procgen_algorithm_pairs = {.. , 'x,y': (score_x, score_y), ..}
 average_probabilities, average_prob_cis = rly.get_interval_estimates(
-  procgen_algorithm_pairs, metrics.probability_of_improvement, reps=2000)
+  procgen_algorithm_pairs, metrics.probability_of_improvement, reps=50000)
 plot_utils.plot_probability_of_improvement(average_probabilities, average_prob_cis)
 ```
 <div align="center">
