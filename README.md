@@ -164,6 +164,7 @@ The code was tested under `Python>=3.7` and uses these packages:
 - scipy >= 1.7.0
 - numpy >= 0.9.0
 - absl-py >= 1.16.4
+- seaborn >= 0.11.2
 
 Citing
 ------

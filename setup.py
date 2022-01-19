@@ -31,6 +31,7 @@ install_requires = [
     'scipy >= 1.7.0',
     'absl-py >= 0.9.0',
     'numpy >= 1.16.4',
+    'seaborn >= 0.11.2'
 ]
 
 rliable_description = (
