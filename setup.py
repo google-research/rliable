@@ -31,6 +31,7 @@ install_requires = [
     'scipy >= 1.7.0',
     'absl-py >= 0.9.0',
     'numpy >= 1.16.4',
+    'seaborn >= 0.11.2'
 ]
 
 rliable_description = (
@@ -39,7 +40,7 @@ rliable_description = (
 
 setup(
     name='rliable',
-    version='1.0.5',
+    version='1.0.6',
     description=rliable_description,
     long_description=long_description,
     long_description_content_type='text/markdown',
