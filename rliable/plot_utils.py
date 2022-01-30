@@ -122,6 +122,7 @@ def plot_performance_profiles(performance_profiles,
                               yticks=None,
                               xlabel=r'Normalized Score ($\tau$)',
                               ylabel=r'Fraction of runs with score $> \tau$',
+                              linestyles=None,
                               **kwargs):
   """Plots performance profiles with stratified confidence intervals.
 
@@ -148,6 +149,8 @@ def plot_performance_profiles(performance_profiles,
       to `[0, 0.25, 0.5, 0.75, 1.0]`.
     xlabel: Label for the x-axis.
     ylabel: Label for the y-axis.
+    linestyles: Maps each method to a linestyle. If None, then the 'solid'
+      linestyle is used for all methods.
     **kwargs: Arbitrary keyword arguments for annotating and decorating the
       figure. For valid arguments, refer to `_annotate_and_decorate_axis`.
 
@@ -162,6 +165,9 @@ def plot_performance_profiles(performance_profiles,
     keys, colors = performance_profiles.keys(), sns.color_palette(color_palette)
     colors = dict(zip(list(keys), colors))
 
+  if linestyles is None:
+    linestyles = {key: 'solid' for key in performance_profiles.keys()}
+
   if use_non_linear_scaling:
     tau_list, xticks, xticklabels = _non_linear_scaling(performance_profiles,
                                                         tau_list, xticks)
@@ -173,6 +179,7 @@ def plot_performance_profiles(performance_profiles,
         tau_list,
         profile,
         color=colors[method],
+        linestyle=linestyles[method],
         linewidth=kwargs.pop('linewidth', 2.0),
         label=method)
     if performance_profile_cis is not None:
