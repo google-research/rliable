@@ -162,8 +162,9 @@ def plot_performance_profiles(performance_profiles,
     _, ax = plt.subplots(figsize=figsize)
 
   if colors is None:
-    keys, colors = performance_profiles.keys(), sns.color_palette(color_palette)
-    colors = dict(zip(list(keys), colors))
+    keys = performance_profiles.keys()
+    color_palette = sns.color_palette(color_palette, n_colors=len(keys))
+    colors = dict(zip(list(keys), color_palette))
 
   if linestyles is None:
     linestyles = {key: 'solid' for key in performance_profiles.keys()}
@@ -246,7 +247,8 @@ def plot_interval_estimates(point_estimates,
   figsize = (subfigure_width * num_metrics, row_height * len(algorithms))
   fig, axes = plt.subplots(nrows=1, ncols=num_metrics, figsize=figsize)
   if colors is None:
-    colors = dict(zip(algorithms, sns.color_palette(color_palette)))
+    color_palette = sns.color_palette(color_palette, n_colors=len(algorithms))
+    colors = dict(zip(algorithms, color_palette))
   h = kwargs.pop('interval_height', 0.6)
 
   for idx, metric_name in enumerate(metric_names):
@@ -300,11 +302,11 @@ def plot_sample_efficiency_curve(frames,
                                  ticklabelsize='xx-large',
                                  **kwargs):
   """Plots an aggregate metric with CIs as a function of environment frames."""
-  colors = sns.color_palette(color_palette)
   if ax is None:
     _, ax = plt.subplots(figsize=figsize)
   if algorithms is None:
     algorithms = list(point_estimates.keys())
+  colors = sns.color_palette(color_palette, n_colors=len(algorithms))
 
   for idx, algorithm in enumerate(algorithms):
     metric_values = point_estimates[algorithm]
@@ -356,8 +358,8 @@ def plot_probability_of_improvement(
     ax: `matplotlib.axes` object.
     figsize: Size of the figure passed to `matplotlib.subplots`. Only used when
       `ax` is None.
-    colors: Maps each algopair name to a color. If None, then this mapping is
-      created based on `color_palette`.
+    colors: Maps each algorithm pair id to a color. If None, then this mapping
+      is created based on `color_palette`.
     color_palette: `seaborn.color_palette` object. Used when `colors` is None.
     alpha: Changes the transparency of the shaded regions corresponding to the
       confidence intervals.
@@ -376,7 +378,8 @@ def plot_probability_of_improvement(
   if ax is None:
     _, ax = plt.subplots(figsize=figsize)
   if not colors:
-    colors = sns.color_palette(color_palette)
+    colors = sns.color_palette(
+        color_palette, n_colors=len(probability_estimates))
   h = kwargs.pop('interval_height', 0.6)
   wrect = kwargs.pop('wrect', 5)
   ticklabelsize = kwargs.pop('ticklabelsize', 'x-large')
