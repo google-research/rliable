@@ -27,7 +27,7 @@ here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 install_requires = [
-    'arch == 5.0.1',
+    'arch >= 4.19',
     'scipy >= 1.7.0',
     'absl-py >= 0.9.0',
     'numpy >= 1.16.4',
@@ -40,7 +40,7 @@ rliable_description = (
 
 setup(
     name='rliable',
-    version='1.0.7',
+    version='1.0.6',
     description=rliable_description,
     long_description=long_description,
     long_description_content_type='text/markdown',
