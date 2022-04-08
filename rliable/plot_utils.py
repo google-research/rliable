@@ -253,7 +253,7 @@ def plot_interval_estimates(point_estimates,
 
   for idx, metric_name in enumerate(metric_names):
     for alg_idx, algorithm in enumerate(algorithms):
-      ax = axes[idx]
+      ax = axes[idx] if num_metrics > 1 else axes
       # Plot interval estimates.
       lower, upper = interval_estimates[algorithm][:, idx]
       ax.barh(
