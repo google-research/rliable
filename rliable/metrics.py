@@ -62,7 +62,7 @@ def aggregate_iqm(scores: np.ndarray):
   """Computes the interquartile mean across runs and tasks.
 
   Args:
-    scores: A matrix of size (`num_runs` x `num_tasks`) where scores[m][n]
+    scores: A matrix of size (`num_runs` x `num_tasks`) where scores[n][m]
       represent the score on run `n` of task `m`.
   Returns:
     IQM (25% trimmed mean) of scores.
@@ -74,9 +74,9 @@ def probability_of_improvement(scores_x: np.ndarray, scores_y: np.ndarray):
   """Overall Probability of imporvement of algorithm `X` over `Y`.
 
   Args:
-    scores_x: A matrix of size (`num_runs_x` x `num_tasks`) where scores_x[m][n]
+    scores_x: A matrix of size (`num_runs_x` x `num_tasks`) where scores_x[n][m]
       represent the score on run `n` of task `m` for algorithm `X`.
-    scores_y: A matrix of size (`num_runs_y` x `num_tasks`) where scores_x[m][n]
+    scores_y: A matrix of size (`num_runs_y` x `num_tasks`) where scores_x[n][m]
       represent the score on run `n` of task `m` for algorithm `Y`.
   Returns:
       P(X_m > Y_m) averaged across tasks.
