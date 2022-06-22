@@ -160,7 +160,7 @@ plot_utils.plot_performance_profiles(
 ### Dependencies
 The code was tested under `Python>=3.7` and uses these packages:
 
-- arch == 5.0.1
+- arch == 5.3.0
 - scipy >= 1.7.0
 - numpy >= 0.9.0
 - absl-py >= 1.16.4
