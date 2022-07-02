@@ -242,7 +242,7 @@ def plot_interval_estimates(point_estimates,
   """
 
   if algorithms is None:
-    algorithms = point_estimates.keys()
+    algorithms = list(point_estimates.keys())
   num_metrics = len(point_estimates[algorithms[0]])
   figsize = (subfigure_width * num_metrics, row_height * len(algorithms))
   fig, axes = plt.subplots(nrows=1, ncols=num_metrics, figsize=figsize)
