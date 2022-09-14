@@ -349,8 +349,8 @@ def plot_sample_efficiency_curve(frames,
         label=algorithm)
     ax.fill_between(
         frames, y1=lower, y2=upper, color=colors[algorithm], alpha=0.2)
-  kwargs.pop('marker')
-  kwargs.pop('linewidth')
+  kwargs.pop('marker', '0')
+  kwargs.pop('linewidth', '2')
 
   return _annotate_and_decorate_axis(
       ax,
