@@ -27,6 +27,11 @@ We provide a colab at [bit.ly/statistical_precipice_colab](https://colab.researc
 which shows how to use the library with examples of published algorithms on
 widely used benchmarks including Atari 100k, ALE, DM Control and Procgen.
 
+### Data for individual runs on Atari 100k, ALE, DM Control and Procgen
+
+You can access the data for individual runs using the public GCP bucket here (you might need to sign in with your
+gmail account to use Gcloud) : https://console.cloud.google.com/storage/browser/rl-benchmark-data.
+The interactive colab above also allows you to access the data programatically.
 
 ### Paper
 For more details, refer to the accompanying **NeurIPS 2021** paper (**Outstanding Paper** Award):
