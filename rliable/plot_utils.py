@@ -483,11 +483,13 @@ def plot_probability_of_improvement(
       right_ylabel,
       fontweight='bold',
       rotation='horizontal',
+      va='bottom',
       fontsize=labelsize)
   ax.set_ylabel(
       left_ylabel,
       fontweight='bold',
       rotation='horizontal',
+      va='bottom',
       fontsize=labelsize)
   twin_ax.set_yticklabels(all_algorithm_y, fontsize=ticklabelsize)
   ax.set_yticklabels(all_algorithm_x, fontsize=ticklabelsize)
@@ -496,7 +498,6 @@ def plot_probability_of_improvement(
   ax.spines['left'].set_visible(False)
   twin_ax.spines['left'].set_visible(False)
   ax.yaxis.set_label_coords(-ylabel_x_coordinate, 1.0)
-  twin_ax.yaxis.set_label_coords(1 + 0.7 * ylabel_x_coordinate,
-                                 1 + 0.6 * ylabel_x_coordinate)
+  twin_ax.yaxis.set_label_coords(1 + 0.7 * ylabel_x_coordinate, 1.0)
 
   return ax
